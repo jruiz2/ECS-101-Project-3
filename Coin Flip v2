@@ -1,0 +1,40 @@
+from random import randrange
+
+# 0 stands for dime being heads
+# 1 stands for dime being tails
+def flipDime():
+	dimeSide = randrange(0,1)
+	return dimeSide
+
+# 0 stands for quarter being heads
+# 1 stands for quarter being tails
+def flipQuart():
+	quartSide = randrange(0,1)
+	return quartSide
+
+
+
+if __name__=='__main__':
+	score=0
+	turnsRemaining=144
+
+	while turnsRemaining!=0:
+		dimeSide = flipDime()
+		if dimeSide == 0:
+			score = score +1
+			turnsRemaining = turnsRemaining - 1
+		elif dimeSide == 1:
+			score = score -1
+			turnsRemaining = turnsRemaining - 1
+		quartSide = flipQuart()
+		if quartSide == 0:
+			score = score + 2
+			turnsRemaining = turnsRemaining - 1
+		elif quartSide == 1:
+			score = score -2
+			turnsRemaining = turnsRemaining - 1
+	print("Score: {0:}".format(score))
+	if score >=1:
+		print("You win!")
+	else:
+		print("You lose!")
